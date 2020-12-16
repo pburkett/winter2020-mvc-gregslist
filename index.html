@@ -20,7 +20,7 @@
             </a>
         </nav>
     </header>
-    <main class="container">
+    <main class="container-fluid">
 
         <div class="row mt-2">
             <div class="col text-right">
@@ -121,7 +121,7 @@
         </div>
         </div>
         <div class="row">
-            <div class="col-2" id="left-side-bar">
+            <div class="col-2 mt-2 mx-3" id="left-side-bar">
                 <div class="row align-items-center  bg-primary my-2 rounded border border-dark">
                     <input checked onclick="app.carsController.toggleCarDraw()" class="ml-4" type="checkbox"
                         id="car-display" name="car-display" value="display-cars">
@@ -132,14 +132,19 @@
                         id="house-display" name="house-display" value="display-houses">
                     <label class="mb-0 ml-3" for="house-display">Show Houses</label>
                 </div>
+                <div class="row align-items-center bg-primary my-2 rounded border border-dark">
+                    <input checked onclick="app.jobsController.toggleJobDraw()" class="ml-4" type="checkbox"
+                        id="job-display" name="job-display" value="display-houses">
+                    <label class="mb-0 ml-3" for="job-display">Show Jobs</label>
+                </div>
 
             </div>
             <div class="col-9">
 
-                <div class="row mb-5" id="cars">
+                <div class="row mb-5 border border-primary pt-3 mt-3" id="cars">
                 </div>
-                <div class="row mb-5" id="houses"></div>
-                <div class="row mb-5" id="jobs"></div>
+                <div class="row mb-5 border border-primary pt-3" id="houses"></div>
+                <div class="row mb-5 border border-primary pt-3" id="jobs"></div>
             </div>
         </div>
     </main>

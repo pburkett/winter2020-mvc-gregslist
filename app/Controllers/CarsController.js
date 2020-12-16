@@ -40,11 +40,12 @@ export default class CarsController {
   toggleCarDraw() {
     console.log('CarsController: toggleCarDraw() called');
     let targetElem = document.getElementById('cars')
-    if (targetElem.innerHTML == '') {
+    if (targetElem.classList.contains("d-none")) {
+      targetElem.classList.remove("d-none")
       _drawCars()
     } else {
       console.log('else');
-      targetElem.innerHTML = ''
+      targetElem.classList.add("d-none")
     }
 
   }

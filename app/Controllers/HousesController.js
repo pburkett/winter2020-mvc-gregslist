@@ -31,16 +31,19 @@ export default class HousesController {
             description: form['description'].value
         }
         houseService.createHouse(houseObj)
+        form.reset()
+        $("#new-house-modal").modal('hide');
     }
 
     toggleHouseDraw() {
         console.log('HousesController: toggleHouseDraw() called');
         let targetElem = document.getElementById('houses')
-        if (targetElem.innerHTML == '') {
+        if (targetElem.classList.contains("d-none")) {
+            targetElem.classList.remove("d-none")
             _drawHouses()
         } else {
             console.log('else');
-            targetElem.innerHTML = ''
+            targetElem.classList.add("d-none")
         }
 
     }

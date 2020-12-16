@@ -28,9 +28,23 @@ export default class JobsController {
             description: form['description'].value
         }
         jobService.createJob(jobObj)
+        form.reset()
+        $("#new-job-modal").modal('hide');
+
     }
     deleteJob(id) {
         jobService.deleteJob(id)
     }
 
+    toggleJobDraw() {
+        let targetElem = document.getElementById('jobs')
+        if (targetElem.classList.contains("d-none")) {
+            targetElem.classList.remove("d-none")
+            _drawJobs()
+        } else {
+            console.log('else');
+            targetElem.classList.add("d-none")
+        }
+
+    }
 }
