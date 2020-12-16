@@ -7,10 +7,9 @@ class CarsService {
   }
   createCar(newCar) {
     console.log("SERVICE: createCar", 2)
+
     let car = new Car(newCar)
-    console.log(4)
     ProxyState.cars = [...ProxyState.cars, car]
-    console.log(6)
   }
 
 }

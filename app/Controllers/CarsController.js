@@ -2,7 +2,7 @@ import { ProxyState } from "../AppState.js"
 import { carsService } from "../Services/CarsService.js"
 
 function _drawCars() {
-  console.log(5)
+
   let cars = ProxyState.cars
   let template = ''
   cars.forEach(car => {
@@ -20,7 +20,6 @@ export default class CarsController {
 
   createCar() {
     window.event.preventDefault()
-    console.log("creating car", 1)
     let form = window.event.target
     let newCar = {
       make: form['make'].value,
@@ -31,13 +30,24 @@ export default class CarsController {
       imgUrl: form['imgUrl'].value
     }
     carsService.createCar(newCar)
-    console.log(7)
     // @ts-ignore
     form.reset()
     // @ts-ignore
-    document.getElementById("new-car-modal").modal('hide');
+    $("#new-car-modal").modal('hide');
   }
+  // $("#new-car-modal").modal('hide');
 
+  toggleCarDraw() {
+    console.log('CarsController: toggleCarDraw() called');
+    let targetElem = document.getElementById('cars')
+    if (targetElem.innerHTML == '') {
+      _drawCars()
+    } else {
+      console.log('else');
+      targetElem.innerHTML = ''
+    }
+
+  }
 
   deleteCar(id) {
     carsService.deleteCar(id)

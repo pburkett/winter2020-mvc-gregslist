@@ -2,7 +2,6 @@ import { generateId } from "../Utils/GenerateId.js"
 
 export default class Car {
   constructor({ make, model, year, price, description, imgUrl }) {
-    console.log("MODEL: constructor", 3)
     this.id = generateId()
     this.make = make
     this.model = model
@@ -20,7 +19,7 @@ export default class Car {
         <div class="card-body">
             <h4 class="card-title">${this.make} - ${this.model} - ${this.year}</h4>
             <p class="card-text">${this.description}</p>
-            <p class="card-text">${this.price}</p>
+            <p class="card-text">$${this.price}</p>
             <div class="text-right">
                 <button type="button" class="btn btn-danger" onclick="app.carsController.deleteCar('${this.id}')">Delete</button>
             </div>
