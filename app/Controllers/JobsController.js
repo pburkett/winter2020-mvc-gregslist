@@ -12,8 +12,8 @@ function _drawJobs() {
 
 export default class JobsController {
     constructor() {
-        console.log("JobsController init");
         ProxyState.on("jobs", _drawJobs)
+        this.loadJobs()
         _drawJobs()
     }
 
@@ -30,12 +30,12 @@ export default class JobsController {
         jobService.createJob(jobObj)
         form.reset()
         $("#new-job-modal").modal('hide');
-
+        
     }
     deleteJob(id) {
         jobService.deleteJob(id)
     }
-
+    
     toggleJobDraw() {
         let targetElem = document.getElementById('jobs')
         if (targetElem.classList.contains("d-none")) {
@@ -45,6 +45,13 @@ export default class JobsController {
             console.log('else');
             targetElem.classList.add("d-none")
         }
-
+        
+    }
+    loadJobs(){
+        try {
+            jobService.loadJobs()
+        } catch(e) {
+            console.error(e)
+        }
     }
 }

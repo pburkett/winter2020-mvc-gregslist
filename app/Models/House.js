@@ -1,9 +1,8 @@
 import { generateId } from "../Utils/GenerateId.js"
 
 export default class House {
-    constructor({ bedrooms, bathrooms, levels, imgUrl, year, price, description }) {
-        console.log('house model init');
-        this.id = generateId()
+    constructor({ bedrooms, bathrooms, levels, imgUrl, year, price, description, id }) {
+        this.id = id
         this.bedrooms = bedrooms
         this.bathrooms = bathrooms
         this.levels = levels

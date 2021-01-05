@@ -1,4 +1,6 @@
 import { ProxyState } from "../AppState.js";
+import House from "../Models/House.js";
+import { api } from "../Services/AxiosService.js";
 import { houseService } from "../Services/HouseService.js"
 
 function _drawHouses() {
@@ -15,6 +17,7 @@ export default class HousesController {
     constructor() {
         console.log('HouseController init');
         ProxyState.on("houses", _drawHouses)
+        this.loadHouses()
         _drawHouses()
     }
     createHouse() {
@@ -30,9 +33,13 @@ export default class HousesController {
             price: form['price'].value,
             description: form['description'].value
         }
-        houseService.createHouse(houseObj)
         form.reset()
         $("#new-house-modal").modal('hide');
+        try {
+            houseService.createHouse(houseObj)
+        } catch(e) {
+            console.error(e)
+        }
     }
 
     toggleHouseDraw() {
@@ -48,9 +55,46 @@ export default class HousesController {
 
     }
     deleteHouse(id) {
-        console.log('housesController: deletehouse() called');
+        try {
         houseService.deleteHouse(id)
-
+        } catch(e){
+            console.error(e)
+        }
+    }
+    loadHouses(){
+        try{
+            houseService.loadHouses()
+        } catch(e){
+            console.error(error)
+        }
+    }
+    shuffleImages(){
+        try {
+            houseService.shuffleImages()
+        } catch(e) {
+        console.error(e)
+        }
+    }
+    freeRealEstate() {
+        try {
+            houseService.freeRealEstate()
+        } catch(e) {
+            console.error(e)
+        }
+    }
+    fillInDescrips(){
+        try {
+            houseService.fillInDescrips()
+        } catch(e) {
+        console.error(e)
+        }
+    }
+    frankenstein(){
+        try{
+            houseService.frankenstein()
+        } catch(e) {
+            console.error(e)
+        }
     }
 }
 

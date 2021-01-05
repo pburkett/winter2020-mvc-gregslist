@@ -1,16 +1,18 @@
 import { generateId } from "../Utils/GenerateId.js"
 
 export default class Job {
-    constructor({ company, jobTitle, hours, rate, description }) {
-        console.log('Job.js init');
-        this.id = generateId()
+    constructor({ company, jobTitle, hours, rate, description, id }) {
+    
+        this.id = id
         this.company = company
         this.jobTitle = jobTitle
         this.hours = hours
         this.rate = rate
         this.description = description
+        
     }
     get Template() {
+        
         return `
 <div class="col-md-4 col-6 px-3 pb-3">
     <div class="card">
@@ -24,7 +26,7 @@ export default class Job {
             </div>
         </div>
     </div>
-    </div>
+</div>
         `
     }
 }

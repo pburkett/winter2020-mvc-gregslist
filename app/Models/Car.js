@@ -1,8 +1,8 @@
 import { generateId } from "../Utils/GenerateId.js"
 
 export default class Car {
-  constructor({ make, model, year, price, description, imgUrl }) {
-    this.id = generateId()
+  constructor({ make, model, year, price, description, imgUrl, id }) {
+    this.id = id
     this.make = make
     this.model = model
     this.year = year
